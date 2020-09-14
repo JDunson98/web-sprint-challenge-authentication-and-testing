@@ -2,6 +2,10 @@ const server = require('../api/server')
 const supertest = require('supertest')
 const db = require('../database/dbConfig')
 
+afterAll(async () => {
+    await db.destroy()
+})
+
 describe('auth router tests', () => {
     describe('register endpoint', () => {
         it('successfully creates a user', async () => {
